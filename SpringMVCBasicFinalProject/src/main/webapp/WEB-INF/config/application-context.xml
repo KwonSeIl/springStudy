@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<context:component-scan base-package="com.sist.*"/>
+	<!-- 스프링에서 사용자 정의 클래스를 관리 = 클래스 전송(객체 생성~객체 소멸) -->
+	<!-- 스프링에서 JSP를 찾아서 request를 전송
+		Spring MVC
+		1. 사용자 요청 (JSP를 보여달라 요청) => 스프링에서 제공하는 Controller(DispatcherServlet)
+			.do를 주면 DispatcherServlet를 찾는다 (web.xml에서 설정했음)
+		2. DispatcherServlet을 요청을 받는다 (Front Controller라고도 함)
+			=> 해당 요청을 처리하는 클래스를 찾으라고 명령
+		3. HandlerMapping: @Controller가 있는 클래스를 찾아온다
+			=> 반드시 클래스에 @Controller,@RestController
+		***4. Controller 안에서 @RequestMapping,@GetMapping,@PostMapping => 아래 있는 메소드를 호출
+		5. 메소드를 호출하면 Model & return(View)의 JSP
+		6. ViewResolver => JSP를 찾고 request를 전송
+			=> 반드시 경로명/확장자 전송
+		***7. View(JSP) => 데이터 받아서 출력
+		8. 사용자 브라우저로 전송
+	 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	  p:prefix="/"
+	  p:suffix=".jsp"
+	/>
+</beans>
