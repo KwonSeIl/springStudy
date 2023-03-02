@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 태그, 속성 정의 -->
+<!-- 태그 정의 -->
+<!--
+	<sawon>
+	  <list> =>  * : 없을 수도 있고 있을 수도 있다
+	  <sabun>1</sabun>
+-->
+<!ELEMENT sawon (list+)>
+<!ELEMENT list (sabun?,name*,dept+,job,(phone|office)*)>
+<!ELEMENT sabun (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dept (#PCDATA)>
+<!ELEMENT job (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT office (#PCDATA)>

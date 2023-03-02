@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.EmpMapper">
+  <select id="empNameListData" resultType="string">
+    SELECT DISTINCT ename FROM emp
+  </select>
+  <!-- 
+     SELECT * FROM emp
+     WHERE ename IN('A','B','C'...)
+     
+     WHERE 
+     <trim prefixOverrides='OR'>
+     <if test='name'>
+       OR name LIKE
+     </if>
+     <if test='subject'>
+       OR subject LIKE
+     </if>
+     <if test='content'>
+       OR content LIKE
+     </if>
+   -->
+   <select id="empInfoData" resultType="EmpVO" parameterType="hashmap">
+     SELECT * FROM emp
+     WHERE ename 
+     <!-- 
+        prefix  => 앞에 첨부
+        suffix => 뒤에 첨부
+        suffixOverrides => 제거
+        prefixOverrides => 앞 제거
+      -->
+     <trim prefix="IN(" suffix=")" suffixOverrides=")">
+       <foreach collection="names" item="name" close=")" separator=",">
+         #{name}
+       </foreach>
+     </trim>
+   </select>
+</mapper>
