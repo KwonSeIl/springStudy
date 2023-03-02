@@ -10,7 +10,7 @@
 <body>
   <center>
     <table width=960 height="600" border="1" bordercolor="black">
-      <tr>
+      <tr>  
         <td width=960 colspan="2" height="100" align="center">
           <tiles:insertAttribute name="header"/>
         </td>

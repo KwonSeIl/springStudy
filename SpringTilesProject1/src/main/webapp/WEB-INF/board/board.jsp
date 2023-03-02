@@ -11,4 +11,4 @@
     <h1>게시판</h1>
   </center>
 </body>
-</html>
+</html>  

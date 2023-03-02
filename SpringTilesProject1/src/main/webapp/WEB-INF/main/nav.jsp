@@ -10,4 +10,4 @@
   <a href="../board/board.do">게시판</a><p>
   <a href="../notice/notice.do">공지사항</a>
 </body>
-</html>
+</html>  

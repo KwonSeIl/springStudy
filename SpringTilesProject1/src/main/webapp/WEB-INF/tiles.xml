@@ -15,5 +15,5 @@
    -->
   <definition name="*/*" extends="main">
     <put-attribute name="content" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
-  </definition>
+  </definition>  
 </tiles-definitions>

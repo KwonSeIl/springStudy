@@ -17,7 +17,7 @@
 	  class="org.springframework.web.servlet.view.UrlBasedViewResolver"
 	  p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView"
 	  p:order="0"
-	/>
+	/>  
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 	  p:prefix="/"
 	  p:suffix=".jsp"

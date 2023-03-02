@@ -8,7 +8,7 @@
 </head>
 <body>
   <center>
-    <h1>Footer.jsp</h1>
+    <h1>Footer.jsp</h1>  
   </center>
 </body>
 </html>
