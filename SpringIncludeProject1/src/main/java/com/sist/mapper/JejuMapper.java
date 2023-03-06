@@ -42,4 +42,6 @@ public interface JejuMapper {
 	@Select("SELECT * FROM jejuFood "
 			+"WHERE no=#{no}")
 	public JejuFoodVO jejuDetailData(int no);
+	
+	
 }

@@ -37,4 +37,23 @@ public interface FoodMapper {
    @Select("SELECT * FROM food_location "
 		   +"WHERE fno=#{fno}")
    public FoodVO foodLocationDetailData(int fno);
+   
+   @Select({
+	   "<script>"
+	   +"SELECT cno,title,poster "
+	   +"FROM project_category "
+	   +"WHERE "
+	   +"<if test='no==1'>"
+	   +"cno BETWEEN 31 AND 42"
+	   +"</if>"
+	   +"<if test='no==2'>"
+	   +"cno BETWEEN 43 AND 48"
+	   +"</if>"
+	   +"<if test='no==3'>"
+	   +"cno BETWEEN 49 AND 60"
+	   +"</if>"
+	   +"</script>"
+   })
+   public List<CategoryVO> categoryVueData(Map map);
+
 }
