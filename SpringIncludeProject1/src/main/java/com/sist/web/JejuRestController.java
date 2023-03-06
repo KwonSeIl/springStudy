@@ -49,6 +49,7 @@ public class JejuRestController {
 	   public String jeju_detail_vue(int no)
 	   {
 		   JejuFoodVO vo=dao.jejuDetailData(no);
+		   
 		   JSONObject obj=new JSONObject();
 		   obj.put("no", vo.getNo());
 		   obj.put("url", vo.getUrl());
@@ -62,6 +63,7 @@ public class JejuRestController {
 		   obj.put("time", vo.getTime());
 		   obj.put("menu", vo.getMenu());
 		   obj.put("score", vo.getScore());
+		   
 		   return obj.toJSONString();
 	   }
 }
