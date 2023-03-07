@@ -58,7 +58,7 @@
 	  },
 	  mounted:function(){ //callback함수
 		  this.send()
-	  },
+	  },  
 	  methods:{ //사용자 정의 -> methods안에 사용
 		  send:function(){
 			  let _this=this
