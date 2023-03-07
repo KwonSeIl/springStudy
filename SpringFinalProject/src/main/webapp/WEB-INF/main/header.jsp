@@ -60,7 +60,7 @@
       </li>
       <li><a class="drop" href="#">커뮤니티</a>
         <ul>
-          <li><a href="../pages/gallery.html">게시판</a></li>
+          <li><a href="../board/list.do">게시판</a></li>
           <li><a href="../pages/full-width.html">공지사항</a></li>
         </ul>
       </li>

@@ -19,5 +19,6 @@
 <script src="../layout/scripts/jquery.backtotop.js"></script> 
 <script src="../layout/scripts/jquery.mobilemenu.js"></script> 
 <script src="../layout/scripts/jquery.flexslider-min.js"></script>
+<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da4c62aa0d3b6477d367816bc345b1c9&libraries&libraries=services"></script> -->
 </body>
 </html>

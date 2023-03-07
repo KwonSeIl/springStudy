@@ -2,6 +2,7 @@ package com.sist.mapper;
 import java.util.*;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.*;
 public interface FoodMapper {
@@ -17,4 +18,13 @@ public interface FoodMapper {
 		   +"FROM project_food "
 		   +"WHERE cno=#{cno}")
    public List<FoodVO> foodListData(int cno);
+   
+   @Update("UPDATE project_food SET "
+		   +"hit=hit+1 "
+		   +"WHERE fno=#{fno}")
+   public void foodHitIncrement(int fno);
+   
+   @Select("SELECT * FROM project_food "
+		   +"WHERE fno=#{fno}")
+   public FoodVO foodDetailData(int fno);
 }

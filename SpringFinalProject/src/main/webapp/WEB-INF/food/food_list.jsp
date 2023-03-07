@@ -23,9 +23,11 @@
             <table class="table" v-for="vo in food_list">
               <tr>
                 <td width="30%" rowspan="4" class="text-center">
-                  <img :src="vo.poster" style="width: 350px;height: 200px" class="img-rounded">
+                  <a :href="'../food/food_before_detail.do?fno='+vo.fno">
+                    <img :src="vo.poster" style="width: 350px;height: 200px" class="img-rounded">
+                  </a>
                 </td>
-                <td width="70%"><h3>{{vo.name}}&nbsp;<span style="color: orange">{{vo.score}}</span></h3></td>
+                <td width="70%"><h3><a :href="'../food/food_before_detail.do?fno='+vo.fno">{{vo.name}}</a>&nbsp;<span style="color: orange">{{vo.score}}</span></h3></td>
               </tr>
               <tr>
                 <td width="70%">{{vo.address}}</td>
