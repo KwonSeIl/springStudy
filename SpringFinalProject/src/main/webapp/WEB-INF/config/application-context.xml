@@ -17,13 +17,13 @@
 	  class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
 	  p:definitions="/WEB-INF/tiles.xml"
 	/>
-	<!-- Tiles --><!-- http만 인식 가능 => 채팅 부분은 인식 불가 -->
+	<!-- Tiles -->
 	<bean id="tilesResolver"
 	  class="org.springframework.web.servlet.view.UrlBasedViewResolver"
 	  p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView"
 	  p:order="0"
 	/>
-	<!-- 스프링 처리 --> <!-- 채팅 부분은 Tiles로 처리X => 프로토콜이 틀리기 때문에 폴더 하나를 더 줌-->
+	<!-- 스프링 처리 --> <!-- 채팅 부분은 Tiles로 처리X -->
 	<bean id="viewResolver"
 	  class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 	  p:prefix="/"
