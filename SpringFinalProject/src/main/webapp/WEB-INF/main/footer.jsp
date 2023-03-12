@@ -12,16 +12,16 @@
   <footer id="footer" class="clear"> 
     <div class="one_third first">
       <h6 class="title">오늘의 뉴스</h6>
-      <address class="btmspace-15">
-      Company Name<br>
-      Street Name &amp; Number<br>
-      Town<br>
-      Postcode/Zip
-      </address>
-      <ul class="nospace">
-        <li class="btmspace-10"><span class="fa fa-phone"></span> +00 (123) 456 7890</li>
-        <li><span class="fa fa-envelope-o"></span> info@domain.com</li>
-      </ul>
+      <article>
+        <c:forEach var="vo" items="${nList }" varStatus="s">
+          <c:if test="${s.index<7 }">
+            <p>${s.index+1 }.<a href="${vo.link }" target="_blank">${vo.title}</a>(${vo.pubDate })</p>
+          </c:if>
+        </c:forEach>
+      </article>
+      <article>
+        <p><a href="../news/find.do">더보기</a></p>
+      </article>
     </div>
     <div class="one_third">
       <h6 class="title">인기레시피</h6>

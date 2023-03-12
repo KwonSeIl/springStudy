@@ -53,12 +53,15 @@ import com.sist.dao.FoodDAO;
  */
 import com.sist.vo.*;
 import java.util.*;
+import com.sist.openapi.*;
 @Aspect
 @Component
 public class CommonAspect {
 	@Autowired
 	private FoodDAO dao;
 	
+	@Autowired
+	private NaverNewsManager mgr;
 	@Around("execution(* com.sist.web.*Controller.*(..))") // Controller전체 포함
 	   public Object around(ProceedingJoinPoint jp) throws Throwable{
 	      // 메소드 실행한 시간 체크해서 출력하기
@@ -85,6 +88,10 @@ public class CommonAspect {
 			vo.setAddress(addr[1].trim()); //구 만 짤라옴
 		}
 		request.setAttribute("tList", tList);
+		
+		List<NewsVO> nList=mgr.newsListData("맛집");
+		request.setAttribute("nList", nList);
+		
 	}
 }
 
