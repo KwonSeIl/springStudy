@@ -123,7 +123,7 @@ public class FoodRestController {
    @GetMapping(value="food/category_info_vue.do",produces = "text/plain;charset=UTF-8")
    public String category_info_vue(int cno)
    {
-	   CategoryVO vo=dao.categoryInfoData(cno);
+	   CategoryVO vo=dao.categoyInfoData(cno);
 	   JSONObject obj=new JSONObject();
 	   obj.put("title", vo.getTitle());
 	   obj.put("subject", vo.getSubject());

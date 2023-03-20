@@ -1,16 +1,17 @@
 package com.sist.intercepter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 /*
- * 								|인터셉트(preHandle() 사용) => 컨트롤러 찾기 전에 먼저 처리한다 ==> 자동 로그인, ID 저장 
- *  사용자 요청  ======> DispatcherServlet ======> @Controller 찾음 ======> ViewResolver =====> JSP - 인터셉트 가능(afterCompletion() 사용) => 로그인을 해야한다 메시지 날림/접근거부 
- *  	.do										--------------    | 인터셉트(postHandle() 사용)
- *  												|
- *  											  @GetMapping / @PostMapping / @RequestMapping 으로 구분 => 메소드를 찾아서 처리
+ *                                  인테셉트(preHandle()) => 자동 로그인 , ID저장 
+ *   사용자 요청  ====> DispatcherServlet ======> @Controller =====> ViewResolver ======> JSP  | 인터셉트(afterCompletion)
+ *     .do                                     -----------   | 인터셉트 (postHandle())
+ *                                                |
+ *                                              @GetMapping/@PostMapping/@RequestMapping => 메소드를 찾아서 처리
  */
 public class CommonInterceptor extends HandlerInterceptorAdapter{
 
@@ -18,6 +19,21 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
+		Cookie[] cookies=request.getCookies();
+		if(cookies!=null)
+		{
+			for(int i=0;i<cookies.length;i++)
+			{
+				String key=cookies[i].getName();
+				if(key.equals("id"))
+				{
+					String id=cookies[i].getValue();
+					request.setAttribute("id", id);
+					request.setAttribute("ck", true);
+					break;
+				}
+			}
+		}
 		return super.preHandle(request, response, handler);
 	}
 
@@ -34,5 +50,5 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
 		// TODO Auto-generated method stub
 		super.afterCompletion(request, response, handler, ex);
 	}
-	
+    
 }

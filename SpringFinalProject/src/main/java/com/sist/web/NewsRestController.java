@@ -11,12 +11,12 @@ import com.sist.vo.*;
 @RestController
 public class NewsRestController {
 	@Autowired
-	private NaverNewsManager mgr;
+    private NaverNewsManager mgr;
 	
 	@GetMapping(value="news/find_vue.do",produces = "text/plain;charset=UTF-8")
 	public String find_vue(String ss)
 	{
-		List<NewsVO> list=mgr.newsListData(ss);
+	    List<NewsVO> list=mgr.newsListData(ss);
 		JSONArray arr=new JSONArray();
 		for(NewsVO vo:list)
 		{

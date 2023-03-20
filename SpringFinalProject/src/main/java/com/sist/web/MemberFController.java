@@ -1,35 +1,23 @@
 package com.sist.web;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.*;
 import com.sist.dao.*;
 import com.sist.vo.*;
-@RestController
+@Controller
+@RequestMapping("member/") //경로명이 길 때 사용 -> 실행 시 앞에 member/붙여서 나옴
 public class MemberFController {
 	@Autowired
 	private MemberDAO dao;
 	
-	@GetMapping(value="member/login_vue.do",produces = "text/html;charset=UTF-8")
-	public String member_login(String id,String pwd,HttpSession session)
+	@GetMapping("join.do")
+	public String member_join()
 	{
-		String res="";
-		MemberVO vo=dao.memberLogin(id, pwd);
-		res=vo.getMsg();
-		if(res.equals("OK"))
-		{
-			session.setAttribute("id", vo.getId());
-			session.setAttribute("name", vo.getName());
-		}
-		return res;
+		return "member/join";
 	}
 	
-	@GetMapping(value="member/logout_vue.do",produces = "text/html;charset=UTF-8")
-	public String member_logout(HttpSession session)
-	{
-		session.invalidate();
-		return "";
-	}
 }
