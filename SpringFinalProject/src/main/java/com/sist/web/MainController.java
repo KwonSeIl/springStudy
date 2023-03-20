@@ -8,11 +8,6 @@ public class MainController {
 	@GetMapping("main/main.do")
 	public String main_main()
 	{
-		return "main"; //Tiles에 등록되어 있음
-	}
-	@GetMapping("chat/chat.do")
-	public String chat_chat()
-	{
-		return "site/chat/chat"; //ViewResolver로 인식
+		return "main";
 	}
 }

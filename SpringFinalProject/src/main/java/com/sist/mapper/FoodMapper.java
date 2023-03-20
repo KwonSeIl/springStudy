@@ -27,4 +27,31 @@ public interface FoodMapper {
    @Select("SELECT * FROM project_food "
 		   +"WHERE fno=#{fno}")
    public FoodVO foodDetailData(int fno);
+   
+   // 검색
+   @Select("SELECT fno,name,poster,score,num "
+		   +"FROM (SELECT fno,name,poster,score,rownum as num "
+		   +"FROM (SELECT fno,name,poster,score "
+		   +"FROM food_location "
+		   +"WHERE address LIKE '%'||#{address}||'%' ORDER BY fno ASC)) "
+		   +"WHERE num BETWEEN #{start} AND #{end}")
+   public List<FoodVO> foodLocationFindData(Map map);
+   //총페이지 구하기
+   @Select("SELECT CEIL(COUNT(*)/20.0) "
+		   +"FROM food_location "
+		   +"WHERE address LIKE '%'||#{address}||'%'")
+   public int foodFindTotalPage(String address);
+   // 상세보기
+   @Select("SELECT * FROM food_location "
+		   +"WHERE fno=#{fno}")
+   public FoodVO foodLocationDetailData(int fno);
+   
+   // 인기맛집 7개
+   @Select("SELECT fno,name,address,score,rownum "
+	         + "FROM (SELECT fno,name,address,score "
+	         + "FROM project_food ORDER BY hit DESC) "
+	         + "WHERE rownum<=7")
+   public List<FoodVO> foodTop7();
+
+   
 }

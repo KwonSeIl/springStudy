@@ -44,7 +44,7 @@
           <input type="button" value="다음"class="btn btn-sm btn-warning" v-on:click="next()">
         </td>
       </tr>
-     </tbody>
+     </tbody>  
     </table>
   </main>
 </div>
@@ -58,7 +58,7 @@
 	  },
 	  mounted:function(){ //callback함수
 		  this.send()
-	  },
+	  },  
 	  methods:{ //사용자 정의 -> methods안에 사용
 		  send:function(){
 			  let _this=this
