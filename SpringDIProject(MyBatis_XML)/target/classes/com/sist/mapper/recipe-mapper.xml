@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sist.mapper.goods-mapper">
-  <select id="recipeListData" resultType="RecipeVO">
-    SELECT no,title,chef,rownum
-    FROM (SELECT no,title,chef FROM recipe ORDER BY no ASC)
-    WHERE rownum&lt;=30
-  </select>
-</mapper>
